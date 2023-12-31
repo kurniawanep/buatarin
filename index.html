@@ -1,0 +1,301 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Selamat Ulang Tahun</title>
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css"
+      integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN"
+      crossorigin="anonymous"
+    />
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11.0.19/dist/sweetalert2.all.min.js"></script>
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/sweetalert2@11.0.19/dist/sweetalert2.min.css"
+    />
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+
+
+    <div class="container d-flex justify-content-center align-items-center vh-100">
+      <img src="img/surat.jpg" class="amplop">
+    </div>
+
+    <script>
+
+      const amplop = document.querySelector('.amplop')
+
+      amplop.addEventListener('click', () => {
+        console.log('ok')
+        amplop.classList.add('hilang')
+        ulangTahun()
+      })
+
+      function ulangTahun() {
+        satu();
+      }
+
+      // Function to ask for wishes
+      function satu() {
+        Swal.fire({
+          title: "Hallooo Fans nya Taylor Swift!!!",
+          html: "Baca dulu bentar dong",
+          imageUrl: "img/taylor.gif",
+          imageWidth: 400,
+          imageHeight: 200,
+          imageAlt: "Ucapan Ulang Tahun",
+          confirmButtonText: "Iyaa",
+        }).then((result) => {
+          // Check if the confirm button was clicked
+          if (result.isConfirmed) {
+            // Show another SweetAlert
+            dua();
+          }
+        });
+      }
+
+      function dua() {
+        Swal.fire({
+          imageUrl: "img/newYear.gif",
+          title: "Happy New Yearr yaa!!! <br> 🥳🥳🥳",
+          html: "",
+          confirmButtonText: "dan juga...",
+        }).then((result) => {
+          // Check if the confirm button was clicked
+          if (result.isConfirmed) {
+            // Show another SweetAlert
+            tiga();
+          }
+        });
+      }
+
+      // Function to ask for celebration
+      function tiga() {
+        Swal.fire({
+          imageUrl: "img/ultah1.gif",
+          title: "Selamat Ulang Tahun Arinnn 🥳",
+          html: "",
+          confirmButtonText: "Oke Makasih",
+        }).then((result) => {
+          // Check if the confirm button was clicked
+          if (result.isConfirmed) {
+            // Show another SweetAlert
+            empat();
+          }
+        });
+      }
+
+      // Function to ask for a gift
+      // function empat() {
+      //   Swal.fire({
+      //     imageUrl: "img/ultah.gif",
+      //     title: "",
+      //     html: "Semoga di tahun baru dan umur baru ini kamu selalu diberi kesehatan, dilimpahkan rezekinyaa, dan dilancarkan urusannya yaa...",
+      //     confirmButtonText: "Lanjut",
+      //   }).then((result) => {
+      //     // Check if the confirm button was clicked
+      //     if (result.isConfirmed) {
+      //       // Show another SweetAlert
+      //       tigab();
+      //     }
+      //   });
+      // }
+
+      // Function to ask for a gift
+      // function tigab() {
+      //   Swal.fire({
+      //     imageUrl: "img/ayo.gif",
+      //     title: "",
+      //     html: "sama satu lagi <br> semoga bisa ngurangin makan es nyaa 😊",
+      //     confirmButtonText: "Lanjut",
+      //   }).then((result) => {
+      //     // Check if the confirm button was clicked
+      //     if (result.isConfirmed) {
+      //       // Show another SweetAlert
+      //       empat();
+      //     }
+      //   });
+      // }
+
+      
+
+      // Function to ask for additional wishes
+      function empat() {
+        Swal.fire({
+          imageUrl: "img/ultah2.gif",
+          title: "Nih ada hadiah buat kamu",
+          html: "kamu mau nerima ga?",
+          showCancelButton: true,
+          confirmButtonText: "Mauu",
+          cancelButtonText: "Ngga",
+        }).then((result) => {
+          if (result.isConfirmed) {
+            // User clicked "Iya"
+            Swal.fire({
+              imageUrl: "img/ketawa.gif",
+              title: "Tapi Maaf Yaa...",
+              html: "aku gabisa ngasih apa-apa",
+              confirmButtonText: "Apasih Dasar Aneh!",
+            }).then((result) => {
+              if (result.isConfirmed) {
+                lima();
+              }
+            });
+          } else if (result.dismiss === Swal.DismissReason.cancel) {
+            // User clicked "Ngga" or closed the modal
+            Swal.fire({
+              imageUrl: "img/nolak.gif",
+              title: "ga boleh nolak",
+              confirmButtonText: "balik",
+            }).then((result) => {
+              if (result.isConfirmed) {
+                // Go back to the previous step
+                empat();
+              }
+            });
+          }
+        });
+      }
+
+      // Function to ask for a gift
+      function lima() {
+        Swal.fire({
+          imageUrl: "img/sombong.gif",
+          title: "Hehehee becanda kok",
+          html: "Maaf aku cuman bisa ngasih doa...",
+          confirmButtonText: "Hmm oke",
+        }).then((result) => {
+          // Check if the confirm button was clicked
+          if (result.isConfirmed) {
+            // Show another SweetAlert
+            enam();
+          }
+        });
+      }
+
+      function enam() {
+        Swal.fire({
+          imageUrl: "img/ayo.gif",
+          title: "Rin...,",
+          html: "Semoga di tahun baru dan umur baru ini kamu selalu diberi kesehatan yaa",
+          confirmButtonText: "Lanjut",
+        }).then((result) => {
+          // Check if the confirm button was clicked
+          if (result.isConfirmed) {
+            // Show another SweetAlert
+            tujuh();
+          }
+        });
+      }
+
+      function tujuh() {
+        Swal.fire({
+          imageUrl: "img/santai.gif",
+          title: "tak lupa...",
+          html: "dilimpahkan terus rezekinya",
+          confirmButtonText: "Lanjut",
+        }).then((result) => {
+          // Check if the confirm button was clicked
+          if (result.isConfirmed) {
+            // Show another SweetAlert
+            delapan();
+          }
+        });
+      }
+
+      function delapan() {
+        Swal.fire({
+          imageUrl: "img/santai.gif",
+          title: "serta...",
+          html: "dimudahkan segala urusannya",
+          confirmButtonText: "Lanjut",
+        }).then((result) => {
+          // Check if the confirm button was clicked
+          if (result.isConfirmed) {
+            // Show another SweetAlert
+            sembilan();
+          }
+        });
+      }
+
+      function sembilan() {
+        Swal.fire({
+          imageUrl: "img/semangat.gif",
+          title: "Rinnn",
+          html: "Semangat terus yaaa kuliahnya, dikit lagi lulus kokkk 💪",
+          confirmButtonText: "Lanjut",
+        }).then((result) => {
+          // Check if the confirm button was clicked
+          if (result.isConfirmed) {
+            // Show another SweetAlert
+            sepuluh();
+          }
+        });
+      }
+
+      function sepuluh() {
+        Swal.fire({
+          imageUrl: "img/tepuk tangan.gif",
+          title: "Oiya, jangan sedih2 ya Rin...",
+          html: "u look amazing when u smile 🤩🤩",
+          confirmButtonText: "Lanjut",
+        }).then((result) => {
+          // Check if the confirm button was clicked
+          if (result.isConfirmed) {
+            // Show another SweetAlert
+            sebelas();
+          }
+        });
+      }
+
+      function sebelas() {
+        Swal.fire({
+          imageUrl: "img/insaft.jpg",
+          title: "Terakhir...",
+          html: "*Semoga bisa kuat terus sama Insaft yaa 🙏🏻😌",
+          confirmButtonText: "Lanjut",
+        }).then((result) => {
+          // Check if the confirm button was clicked
+          if (result.isConfirmed) {
+            // Show another SweetAlert
+            duabelas();
+          }
+        });
+      }
+
+
+      function duabelas() {
+        Swal.fire({
+          imageUrl: "img/denger1.gif",
+          title: "Yey Selesai",
+          html: "Maaf ya cuma bisa ngasih itu doang <br> Boleh kali kalo mau bales...",
+          confirmButtonText: "Lanjut",
+          input: 'text',
+          inputPlaceholder: "Masukkan pesan",
+          confirmButtonText: "Kirim",
+        }).then((result) => {
+          // Check if the confirm button was clicked and the input is not empty
+          if (result.isConfirmed && result.value) {
+            // Create a WhatsApp message link with the entered text
+            const message = encodeURIComponent(result.value);
+            const whatsappLink = `https://wa.me/+6285155139699?text=${message}`;
+
+            // Open WhatsApp link in a new tab
+            window.open(whatsappLink, "_blank");
+
+            // Show a confirmation message
+            Swal.fire({
+              title: "Pesan Terkirim!",
+              text: "Terima kasih yaa",
+              icon: "success",
+              confirmButtonText: "OK",
+            });
+          }
+        });
+      }
+    </script>
+  </body>
+</html>
